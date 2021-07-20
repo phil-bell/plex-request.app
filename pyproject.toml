@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "plex-request.app"
+version = "0.1.0"
+description = "plex server side app for adding content"
+authors = ["phil-bell <philhabell@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.66.1"
+uvicorn = "^0.14.0"
+python-multipart = "^0.0.5"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
