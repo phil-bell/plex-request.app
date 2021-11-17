@@ -1,11 +1,14 @@
-from fastapi import Depends, FastAPI
+from subprocess import run as _run
+from fastapi import FastAPI
 from fastapi.security import OAuth2PasswordBearer
 
 
 app = FastAPI()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+def run(command: str):
+    _run(command.split())
 
 
-@app.get("/")
-async def root(token: str = Depends(oauth2_scheme)):
-    return {"message": "Hello World"}
+@app.post("/torrent/add/")
+async def root(magnet: str, path: str):
+    run(f'deluge-console add "add -path {path} {magnet}"')
